@@ -12,19 +12,19 @@ SRCS_common = test.c
 
 clz_recursive: $(SRCS_common) clz_recursive.o
 	$(CC) $(CFLAGS_common) $(CFLAGS_opt) \
-		-o $@ $(SRCS_common) $@.o
+	 -DVERSION="\"recursive\""	-o $@ $(SRCS_common) $@.o
 
 clz_iterative: $(SRCS_common) clz_iterative.o
 	$(CC) $(CFLAGS_common) $(CFLAGS_opt) \
-		-o $@ $(SRCS_common) $@.o
+		-DVERSION="\"iterative\"" -o $@ $(SRCS_common) $@.o
 		
 clz_binary_search: $(SRCS_common) clz_binary_search.o
 	$(CC) $(CFLAGS_common) $(CFLAGS_opt) \
-		-o $@ $(SRCS_common) $@.o
+		-DVERSION="\"binary_search\""	-o $@ $(SRCS_common) $@.o
 
 clz_byte_shift: $(SRCS_common) clz_byte_shift.o
 	$(CC) $(CFLAGS_common) $(CFLAGS_opt) \
-		-o $@ $(SRCS_common) $@.o
+	 -DVERSION="\"byte_shift\""	-o $@ $(SRCS_common) $@.o
 
 .PHONY: clean
 clean:
