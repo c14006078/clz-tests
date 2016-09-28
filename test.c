@@ -31,29 +31,14 @@ int main( int argc, char** argv)
 	struct timespec start, end;
 	double cpu_time;
 
-//	printf("pid = %d\n", getpid());
-//	sleep(5);
-
-//#if defined(__GNUC__)
-//    __builtin___clear_cache((char *) clz, (char *) clz + 100);
-//#endif
-
-	//ASSERT_CLZ( 0xF0000000, 0);
 
 	clock_gettime( CLOCK_REALTIME, &start);
 
-	for( int j = 0; j <1000 ; j++)
-		
+	for( int j = 0; j <1000 ; j++){
 		ASSERT_CLZ( 0, 32);
-		clz( 0);
-		for( int i = 0; i < 32; i++){
-			//int in = 1 << i, ans = 31 -i;
-			//ASSERT_CLZ( in, ans);
-			
+		for( int i = 0; i < 32; i++)
 			ASSERT_CLZ( 1 << i, 31 -i);
-
-			//clz( 1 << i);
-		}
+	}
 
 	clock_gettime( CLOCK_REALTIME, &end);
 

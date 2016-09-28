@@ -23,31 +23,17 @@ int clz( uint32_t x)
 		};
 
 		/* Propagate leftmost 1-bit to the right */
-		printf("Propagate leftmost 1-bit to the right\n");
-		prtBinary( x);
 		x = x | (x >> 1);
-		prtBinary( x);
 		x = x | (x >> 2);
-		prtBinary( x);
 		x = x | (x >> 4);
-		prtBinary( x);
 		x = x | (x >> 8);
-		prtBinary( x);
 		x = x | (x >> 16);
-		prtBinary( x);
 
 		/* x = x * 0x6EB14F9 */
-		printf("x = x * 0x6EB14F9\n");
 		x = (x << 3) - x;   /* Multiply by 7. */
-		prtBinary( x);
 		x = (x << 8) - x;   /* Multiply by 255. */
-		prtBinary( x);
 		x = (x << 8) - x;   /* Again. */
-		prtBinary( x);
 		x = (x << 8) - x;   /* Again. */
-		prtBinary( x);
 		
-		printf("table index = %d\n",  x >> 26);
-		printf("clz = %d\n", Table[ x >> 26]);
 		return Table[x >> 26];
 }
