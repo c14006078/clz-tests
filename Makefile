@@ -2,7 +2,8 @@ CC ?= gcc
 CFLAGS_common ?= -Wall -std=gnu99
 CFLAGS = -O0 -g
 
-EXEC = clz_recursive clz_iterative clz_binary_search clz_byte_shift
+EXEC = clz_recursive clz_iterative clz_binary_search \
+				clz_byte_shift clz_Harley
 all: $(EXEC)
 
 SRCS_common = test.c
@@ -25,6 +26,10 @@ clz_binary_search: $(SRCS_common) clz_binary_search.o
 clz_byte_shift: $(SRCS_common) clz_byte_shift.o
 	$(CC) $(CFLAGS_common) $(CFLAGS_opt) \
 	 -DVERSION="\"byte_shift\""	-o $@ $(SRCS_common) $@.o
+
+clz_Harley: $(SRCS_common) clz_Harley.o
+	$(CC) $(CFLAGS_common) $(CFLAGS_opt) \
+	 -DVERSION="\"Harley's alg\""	-o $@ $(SRCS_common) $@.o
 
 .PHONY: clean
 clean:

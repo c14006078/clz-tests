@@ -1,5 +1,7 @@
 #include <stdint.h>
 
+/*It use the 4byte * 2*/
+
 int clz( uint32_t x){
 	if( x == 0)	return 32;
 
